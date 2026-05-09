@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>正在返回题库</title>
+    <script>
+      ;(() => {
+        const repositoryBase = '/ZJU_Microbiology_tests'
+        const currentPath = window.location.pathname
+        const relativePath = currentPath.startsWith(repositoryBase)
+          ? currentPath.slice(repositoryBase.length) || '/'
+          : currentPath
+        const target = `${repositoryBase}/?redirect=${encodeURIComponent(
+          `${relativePath}${window.location.search}${window.location.hash}`,
+        )}`
+
+        window.location.replace(target)
+      })()
+    </script>
+  </head>
+  <body>
+    正在返回题库...
+  </body>
+</html>

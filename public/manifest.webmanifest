@@ -1,0 +1,16 @@
+{
+  "name": "微生物学期末选择题练习",
+  "short_name": "微生物期末",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f5eedf",
+  "theme_color": "#0f6a6f",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
