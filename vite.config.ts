@@ -6,6 +6,6 @@ const isGitHubPagesBuild = process.env.GITHUB_PAGES === 'true'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/ZJU_Microbiology_tests/',
+  base: isGitHubPagesBuild ? `/${repositoryName}/` : '/',
   plugins: [react()],
 })
