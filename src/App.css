@@ -489,8 +489,7 @@ h2 {
 }
 
 .chapter-chip,
-.chapter-count,
-.scope-badge {
+.chapter-count {
   display: inline-flex;
   align-items: center;
   min-height: 34px;
@@ -512,33 +511,6 @@ h2 {
 .scope-note {
   max-width: 780px;
   margin-bottom: 18px;
-  color: var(--ink-soft);
-}
-
-.scope-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-.scope-badge {
-  width: fit-content;
-  font-weight: 700;
-}
-
-.scope-both {
-  background: var(--teal-soft);
-  color: var(--teal-deep);
-}
-
-.scope-current-only {
-  background: rgba(215, 125, 78, 0.18);
-  color: #8c4d29;
-}
-
-.scope-last-year-only {
-  background: rgba(84, 101, 107, 0.14);
   color: var(--ink-soft);
 }
 

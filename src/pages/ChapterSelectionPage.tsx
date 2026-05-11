@@ -1,11 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { usePractice } from '../hooks/usePractice'
-import {
-  getChapterScope,
-  getChapterScopeLabel,
-  getScopedChapters,
-  getScopedQuestionCount,
-} from '../lib/chapterScope'
+import { getScopedChapters, getScopedQuestionCount } from '../lib/chapterScope'
 
 export function ChapterSelectionPage() {
   const {
@@ -73,13 +68,12 @@ export function ChapterSelectionPage() {
         </div>
 
         <p className="scope-note">
-          这里保留“今年教学大纲”和“去年 PPT”两者的并集章节，用作期末复习题池。标签会说明该章节是
-          “大纲 + 去年”、“仅今年大纲”还是“仅去年 PPT”。
+          已按老师核验后的 PPT 范围整理：去年 PPT 与今年 PPT 内容一致，因此这里只保留需要复习的章节。选择一个或多个章节后，会从所选章节中随机抽题练习。
         </p>
 
         <div className="selection-summary">
           <div className="summary-pill">
-            期末章节 <strong>{scopedChapters.length}</strong>
+            复习章节 <strong>{scopedChapters.length}</strong>
           </div>
           <div className="summary-pill">
             已选章节 <strong>{selectedChapterIds.length}</strong>
@@ -90,12 +84,6 @@ export function ChapterSelectionPage() {
           <div className="summary-pill">
             期末题量 <strong>{scopedQuestionCount}</strong>
           </div>
-        </div>
-
-        <div className="scope-legend">
-          <span className="scope-badge scope-both">大纲 + 去年</span>
-          <span className="scope-badge scope-current-only">仅今年大纲</span>
-          <span className="scope-badge scope-last-year-only">仅去年 PPT</span>
         </div>
 
         <div className="cta-row desktop-only">
@@ -113,8 +101,6 @@ export function ChapterSelectionPage() {
       <section className="chapter-grid">
         {scopedChapters.map((chapter) => {
           const isSelected = selectedSet.has(chapter.id)
-          const scope = getChapterScope(chapter.id)
-          const scopeClassName = scope ? `scope-badge scope-${scope}` : 'scope-badge'
 
           return (
             <button
@@ -127,8 +113,6 @@ export function ChapterSelectionPage() {
                 <span className="chapter-chip">Chapter {chapter.id}</span>
                 <span className="chapter-count">{chapter.questionCount} 题</span>
               </div>
-
-              <span className={scopeClassName}>{getChapterScopeLabel(chapter.id)}</span>
 
               <h2>{chapter.title}</h2>
               <p>
