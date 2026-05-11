@@ -17,9 +17,9 @@ import type {
 } from '../types'
 import { isScopedChapterId } from '../lib/chapterScope'
 
-const SESSION_STORAGE_KEY = 'microbiology-mid-exam-session'
-const SELECTION_STORAGE_KEY = 'microbiology-mid-exam-selection'
-const MISTAKES_STORAGE_KEY = 'microbiology-mid-exam-mistakes'
+const SESSION_STORAGE_KEY = 'microbiology-final-review-session'
+const SELECTION_STORAGE_KEY = 'microbiology-final-review-selection'
+const MISTAKES_STORAGE_KEY = 'microbiology-final-review-mistakes'
 
 export function PracticeProvider({
   children,

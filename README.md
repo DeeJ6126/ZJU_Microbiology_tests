@@ -73,7 +73,7 @@ npm.cmd run build
 
 推荐做法：
 
-1. 把整个 `mid_exam_practice_app` 目录推到 Git 仓库。
+1. 把整个 `ZJU_Microbiology_tests` 目录推到 Git 仓库。
 2. 在 Netlify 中选择该仓库创建站点。
 3. Build command 填 `npm run build`
 4. Publish directory 填 `dist`
