@@ -19,6 +19,7 @@ export interface PracticeContextValue {
   recordAnswer: (questionId: string, selectedKey: AnswerSelection) => void
   goToIndex: (index: number) => void
   clearSession: () => void
+  keepMistake: (questionId: string, selectedKey: AnswerSelection) => void
   removeMistake: (questionId: string) => void
   clearMistakes: () => void
   hasMistake: (questionId: string) => boolean

@@ -87,7 +87,7 @@ export function MistakesPage() {
 
         <p className="scope-note">
           错题本只保留错题记录，不直接展示标准答案。点击“开始重做错题”后，会按错题池重新做一遍；
-          在错题练习模式中答对的题会自动移出错题本，答错则继续保留。
+          在错题练习模式中，答题后可自行选择保留或移出错题本。
         </p>
       </section>
 
@@ -111,7 +111,7 @@ export function MistakesPage() {
             </div>
 
             <p className="mistake-answer-text">
-              这道题已加入错题池。进入错题练习后重新作答，答对会自动移出。
+              这道题已加入错题池。进入错题练习后重新作答，可在看完答案后自行决定是否移出。
             </p>
 
             <div className="practice-actions">

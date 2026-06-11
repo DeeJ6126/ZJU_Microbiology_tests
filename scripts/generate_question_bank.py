@@ -11,7 +11,7 @@ import fitz
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-SOURCE_DIR = PROJECT_ROOT.parent / "mid_exam" / "tests"
+SOURCE_DIR = PROJECT_ROOT / "mid_exam" / "tests"
 OUTPUT_BANK = PROJECT_ROOT / "public" / "question-bank.json"
 OUTPUT_PDF_DIR = PROJECT_ROOT / "public" / "pdfs"
 

@@ -11,6 +11,8 @@ export function PracticePage() {
     recordAnswer,
     restartPractice,
     goToIndex,
+    keepMistake,
+    removeMistake,
     hasMistake,
     getQuestionById,
   } = usePractice()
@@ -38,6 +40,7 @@ export function PracticePage() {
   const isInMistakes = hasMistake(currentQuestion.id)
   const isIncorrectAnswer = Boolean(answer && !answer.isCorrect)
   const isUnknownAnswer = answer?.selectedKey === 'UNKNOWN'
+  const isMistakeDrill = practiceSession.mode === 'mistakes'
 
   function handleOptionClick(optionKey: OptionKey) {
     if (!answer) {
@@ -69,6 +72,12 @@ export function PracticePage() {
 
     if (nextSession) {
       navigate('/practice')
+    }
+  }
+
+  function handleKeepMistake() {
+    if (answer) {
+      keepMistake(currentQuestion.id, answer.selectedKey)
     }
   }
 
@@ -191,12 +200,36 @@ export function PracticePage() {
               ) : (
                 <p>这道题暂时还没有生成 AI 解析。</p>
               )}
-              {isUnknownAnswer ? (
+              {isMistakeDrill ? (
+                <div className="mistake-decision-panel">
+                  <p>
+                    这道题来自错题本。无论本次答对或答错，都由你决定是否继续保留。
+                  </p>
+                  <p>
+                    当前状态：{isInMistakes ? '保留在错题本' : '已从错题本移除'}。
+                  </p>
+                  <div className="practice-actions">
+                    <button
+                      className="secondary-button"
+                      onClick={handleKeepMistake}
+                      type="button"
+                    >
+                      {isInMistakes ? '继续保留' : '重新保留到错题本'}
+                    </button>
+                    <button
+                      className="ghost-button"
+                      disabled={!isInMistakes}
+                      onClick={() => removeMistake(currentQuestion.id)}
+                      type="button"
+                    >
+                      从错题本移除
+                    </button>
+                  </div>
+                </div>
+              ) : isUnknownAnswer ? (
                 <p>这道题已按未掌握处理，并已加入错题本，后续可在错题练习里重新作答。</p>
               ) : isIncorrectAnswer ? (
                 <p>这道题已经加入错题本，你可以稍后在手机上单独重练。</p>
-              ) : isInMistakes ? (
-                <p>这道题之前已经在错题本中，若不再需要可到错题本页手动移除。</p>
               ) : (
                 <p>继续下一题，保持这轮乱序练习的节奏。</p>
               )}

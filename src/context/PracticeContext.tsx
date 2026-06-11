@@ -130,11 +130,8 @@ export function PracticeProvider({
       return
     }
 
-    if (session?.mode === 'mistakes') {
-      setMistakeRecords((current) =>
-        current.filter((record) => record.questionId !== questionId),
-      )
-    }
+    // Correct answers do not remove mistake records automatically.
+    // The learner decides explicitly from the feedback panel.
   }
 
   function goToIndex(index: number) {
@@ -165,6 +162,19 @@ export function PracticeProvider({
     )
   }
 
+  function keepMistake(questionId: string, selectedKey: AnswerSelection) {
+    const question = questionLookup[questionId]
+
+    if (!question) {
+      return
+    }
+
+    const answeredAt = new Date().toISOString()
+    setMistakeRecords((current) =>
+      keepMistakeRecord(current, question, selectedKey, answeredAt),
+    )
+  }
+
   function clearMistakes() {
     setMistakeRecords([])
   }
@@ -187,6 +197,7 @@ export function PracticeProvider({
         recordAnswer,
         goToIndex,
         clearSession,
+        keepMistake,
         removeMistake,
         clearMistakes,
         hasMistake,
@@ -341,6 +352,39 @@ function upsertMistake(
       lastSelectedKey: selectedKey,
       correctKey: question.answerKey,
       wrongCount: existing.wrongCount + 1,
+      lastAnsweredAt: answeredAt,
+    },
+    ...records.filter((record) => record.questionId !== question.id),
+  ]
+}
+
+function keepMistakeRecord(
+  records: MistakeRecord[],
+  question: Question,
+  selectedKey: AnswerSelection,
+  answeredAt: string,
+): MistakeRecord[] {
+  const existing = records.find((record) => record.questionId === question.id)
+
+  if (!existing) {
+    return [
+      {
+        questionId: question.id,
+        chapterId: question.chapterId,
+        lastSelectedKey: selectedKey,
+        correctKey: question.answerKey,
+        wrongCount: 1,
+        lastAnsweredAt: answeredAt,
+      },
+      ...records,
+    ]
+  }
+
+  return [
+    {
+      ...existing,
+      lastSelectedKey: selectedKey,
+      correctKey: question.answerKey,
       lastAnsweredAt: answeredAt,
     },
     ...records.filter((record) => record.questionId !== question.id),
