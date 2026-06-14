@@ -70,6 +70,37 @@ export interface MistakeRecord {
   lastAnsweredAt: string
 }
 
+export type VocabularyStatus = 'new' | 'learning' | 'mastered'
+
+export type VocabularySourceType = 'practice' | 'past-exam'
+
+export interface VocabularyRecord {
+  id: string
+  term: string
+  normalizedTerm: string
+  contextText: string
+  sourceType: VocabularySourceType
+  questionId?: string
+  examId?: string
+  questionNumber: number
+  chapterId?: number
+  chapterTitle?: string
+  status: VocabularyStatus
+  addedAt: string
+  updatedAt: string
+}
+
+export interface VocabularyRecordInput {
+  term: string
+  contextText: string
+  sourceType: VocabularySourceType
+  questionId?: string
+  examId?: string
+  questionNumber: number
+  chapterId?: number
+  chapterTitle?: string
+}
+
 export interface PastExamMatch {
   type: 'exact' | 'high' | 'review' | 'none'
   score: number

@@ -11,6 +11,7 @@ import { PastExamPaperPage } from './pages/PastExamPaperPage'
 import { PastExamsPage } from './pages/PastExamsPage'
 import { PracticePage } from './pages/PracticePage'
 import { ResultsPage } from './pages/ResultsPage'
+import { VocabularyPage } from './pages/VocabularyPage'
 
 function App() {
   const { questionBank, loading, error, reload } = useQuestionBank()
@@ -52,6 +53,7 @@ function App() {
           <Route path="/past-exams/:examId" element={<PastExamPaperPage />} />
           <Route path="/practice" element={<PracticePage />} />
           <Route path="/mistakes" element={<MistakesPage />} />
+          <Route path="/vocabulary" element={<VocabularyPage />} />
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<Navigate replace to="/" />} />

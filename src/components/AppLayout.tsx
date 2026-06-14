@@ -8,7 +8,7 @@ interface AppLayoutProps {
 }
 
 export function AppLayout({ children }: AppLayoutProps) {
-  const { questionBank, session, mistakeRecords } = usePractice()
+  const { questionBank, session, mistakeRecords, vocabularyRecords } = usePractice()
   const answeredCount = session?.answers.length ?? 0
   const totalCount = session?.questionOrder.length ?? getScopedQuestionCount(questionBank)
 
@@ -42,6 +42,9 @@ export function AppLayout({ children }: AppLayoutProps) {
           <NavLink className={getNavClassName} to="/mistakes">
             错题本
           </NavLink>
+          <NavLink className={getNavClassName} to="/vocabulary">
+            生词本
+          </NavLink>
           <NavLink className={getNavClassName} to="/results">
             结果
           </NavLink>
@@ -60,6 +63,10 @@ export function AppLayout({ children }: AppLayoutProps) {
           <div className="status-pill">
             <span>错题本</span>
             <strong>{mistakeRecords.length}</strong>
+          </div>
+          <div className="status-pill">
+            <span>生词本</span>
+            <strong>{vocabularyRecords.length}</strong>
           </div>
         </div>
       </header>

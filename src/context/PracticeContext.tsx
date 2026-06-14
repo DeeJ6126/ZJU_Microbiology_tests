@@ -7,6 +7,13 @@ import {
   getPracticePool,
   normalizeChapterSelection,
 } from '../lib/practice'
+import {
+  createVocabularyRecord,
+  getVocabularyDedupeKey,
+  mergeVocabularyRecords,
+  sanitizeVocabularyRecords,
+  updateVocabularyStatus,
+} from '../lib/vocabulary'
 import { PracticeContext } from './practiceContextObject'
 import type {
   AnswerSelection,
@@ -14,12 +21,16 @@ import type {
   PracticeSession,
   Question,
   QuestionBank,
+  VocabularyRecord,
+  VocabularyRecordInput,
+  VocabularyStatus,
 } from '../types'
 import { isScopedChapterId } from '../lib/chapterScope'
 
 const SESSION_STORAGE_KEY = 'microbiology-final-review-session'
 const SELECTION_STORAGE_KEY = 'microbiology-final-review-selection'
 const MISTAKES_STORAGE_KEY = 'microbiology-final-review-mistakes'
+const VOCABULARY_STORAGE_KEY = 'microbiology-final-review-vocabulary'
 
 export function PracticeProvider({
   children,
@@ -47,6 +58,12 @@ export function PracticeProvider({
       mistakeRecords,
     ),
   )
+  const [vocabularyRecords, setVocabularyRecords] = useState<VocabularyRecord[]>(
+    () =>
+      sanitizeVocabularyRecords(
+        readStoredValue<VocabularyRecord[]>(VOCABULARY_STORAGE_KEY) ?? [],
+      ),
+  )
 
   useEffect(() => {
     writeStoredValue(SELECTION_STORAGE_KEY, selectedChapterIds)
@@ -59,6 +76,10 @@ export function PracticeProvider({
   useEffect(() => {
     writeStoredValue(SESSION_STORAGE_KEY, session)
   }, [session])
+
+  useEffect(() => {
+    writeStoredValue(VOCABULARY_STORAGE_KEY, vocabularyRecords)
+  }, [vocabularyRecords])
 
   function setSelectedChapterIds(chapterIds: number[]) {
     setSelectedChapterIdsState(normalizeChapterSelection(chapterIds, questionBank))
@@ -183,6 +204,35 @@ export function PracticeProvider({
     return mistakeRecords.some((record) => record.questionId === questionId)
   }
 
+  function addVocabularyRecord(input: VocabularyRecordInput) {
+    const nextRecord = createVocabularyRecord(input)
+
+    if (!nextRecord.term || !nextRecord.normalizedTerm) {
+      return null
+    }
+
+    setVocabularyRecords((current) => upsertVocabularyRecord(current, nextRecord))
+    return nextRecord
+  }
+
+  function removeVocabularyRecord(recordId: string) {
+    setVocabularyRecords((current) =>
+      current.filter((record) => record.id !== recordId),
+    )
+  }
+
+  function updateVocabularyRecordStatus(recordId: string, status: VocabularyStatus) {
+    setVocabularyRecords((current) => updateVocabularyStatus(current, recordId, status))
+  }
+
+  function clearVocabularyRecords() {
+    setVocabularyRecords([])
+  }
+
+  function importVocabularyRecords(records: VocabularyRecord[]) {
+    setVocabularyRecords((current) => mergeVocabularyRecords(current, records))
+  }
+
   return (
     <PracticeContext.Provider
       value={{
@@ -190,6 +240,7 @@ export function PracticeProvider({
         session,
         selectedChapterIds,
         mistakeRecords,
+        vocabularyRecords,
         setSelectedChapterIds,
         beginPractice,
         beginMistakePractice,
@@ -201,6 +252,11 @@ export function PracticeProvider({
         removeMistake,
         clearMistakes,
         hasMistake,
+        addVocabularyRecord,
+        removeVocabularyRecord,
+        updateVocabularyRecordStatus,
+        clearVocabularyRecords,
+        importVocabularyRecords,
         getQuestionById: (questionId: string) => questionLookup[questionId],
       }}
     >
@@ -388,6 +444,28 @@ function keepMistakeRecord(
       lastAnsweredAt: answeredAt,
     },
     ...records.filter((record) => record.questionId !== question.id),
+  ]
+}
+
+function upsertVocabularyRecord(
+  records: VocabularyRecord[],
+  nextRecord: VocabularyRecord,
+): VocabularyRecord[] {
+  const nextKey = getVocabularyDedupeKey(nextRecord)
+  const existing = records.find((record) => getVocabularyDedupeKey(record) === nextKey)
+
+  if (!existing) {
+    return [nextRecord, ...records]
+  }
+
+  return [
+    {
+      ...existing,
+      term: nextRecord.term,
+      contextText: nextRecord.contextText,
+      updatedAt: nextRecord.updatedAt,
+    },
+    ...records.filter((record) => record.id !== existing.id),
   ]
 }
 

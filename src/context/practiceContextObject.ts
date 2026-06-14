@@ -5,6 +5,9 @@ import type {
   PracticeSession,
   Question,
   QuestionBank,
+  VocabularyRecord,
+  VocabularyRecordInput,
+  VocabularyStatus,
 } from '../types'
 
 export interface PracticeContextValue {
@@ -12,6 +15,7 @@ export interface PracticeContextValue {
   session: PracticeSession | null
   selectedChapterIds: number[]
   mistakeRecords: MistakeRecord[]
+  vocabularyRecords: VocabularyRecord[]
   setSelectedChapterIds: (chapterIds: number[]) => void
   beginPractice: (chapterIds: number[]) => PracticeSession | null
   beginMistakePractice: () => PracticeSession | null
@@ -23,6 +27,11 @@ export interface PracticeContextValue {
   removeMistake: (questionId: string) => void
   clearMistakes: () => void
   hasMistake: (questionId: string) => boolean
+  addVocabularyRecord: (input: VocabularyRecordInput) => VocabularyRecord | null
+  removeVocabularyRecord: (recordId: string) => void
+  updateVocabularyRecordStatus: (recordId: string, status: VocabularyStatus) => void
+  clearVocabularyRecords: () => void
+  importVocabularyRecords: (records: VocabularyRecord[]) => void
   getQuestionById: (questionId: string) => Question | undefined
 }
 

@@ -2322,14 +2322,14 @@
       "sourcePage": 12,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "????????????????????? biofilms??????????????????????????????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "长期留置在体内的医疗器械表面容易被细菌附着并形成生物膜。生物膜中的细胞被胞外聚合物基质保护，代谢状态也更不均一，因此对抗生素和宿主免疫清除更耐受。",
         "optionExplanations": {
-          "A": "???biofilms ?????????????????????",
-          "B": "???liquids ??????????????????",
-          "C": "???populations ?????????????????????",
-          "D": "???communities ?????????????"
+          "A": "正确。Biofilms 是附着在表面并被基质包裹的微生物群体，是医疗器械相关感染的重要原因。",
+          "B": "错误。Liquids 只是物理状态，不能解释附着、保护和耐药性增强。",
+          "C": "错误。Populations 只表示种群数量概念，不特指表面附着和生物膜结构。",
+          "D": "错误。Communities 可泛指群落，但本题强调医疗器械表面的耐受性结构，专门术语是 biofilms。"
         },
         "confidence": "high"
       }
@@ -4613,21 +4613,21 @@
           "text": "The major function of the rough endoplasmic reticulum is lipid synthesis."
         }
       ],
-      "answerKey": "A",
+      "answerKey": "C",
       "sourcePdf": "pdfs/chapter-02.pdf",
       "sourcePage": 5,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "其他选项关于细胞器功能的描述均存在事实错误，例如溶酶体负责降解，粗面内质网负责蛋白质合成。在排除了明显错误的选项后，A 被视为本题的正确陈述。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "原答案键把 A 作为正确项，但真核鞭毛依靠 9+2 微管结构弯曲摆动，不像细菌鞭毛那样旋转。四个选项中只有 C 最接近真核运动附器通过弯曲或摆动产生运动这一事实。",
         "optionExplanations": {
-          "A": "在此题语境下，A 为正确选项，排除其他功能错误项。",
+          "A": "错误。真核鞭毛不是像原核鞭毛那样由马达旋转，而是由微管滑动导致弯曲摆动。",
           "B": "溶酶体负责降解而非合成蛋白质和碳水化合物。",
-          "C": "纤毛通常快速摆动，且描述不如 A 准确。",
+          "C": "最佳答案。纤毛属于真核运动附器，依靠微管弯曲产生摆动；虽然“slow”表述不够理想，但比其他选项更符合事实。",
           "D": "粗面内质网主要负责蛋白质合成，脂质合成主要在滑面内质网。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -4941,21 +4941,21 @@
           "text": "phosphorus, selenium, and sulfur."
         }
       ],
-      "answerKey": "D",
+      "answerKey": "C",
       "sourcePdf": "pdfs/chapter-03.pdf",
       "sourcePage": 2,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "磷（P）和硫（S）是所有微生物合成核酸和蛋白质的必需元素。硒（Se）虽然是微量元素，但在某些关键酶的功能中不可或缺。相比之下，钠（Na）、铝（Al）和钙（Ca）并非所有微生物的绝对必需元素。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "微生物普遍需要多种大量元素和无机离子。钾和镁是细胞功能中高度普遍的必需元素，钙也常列入主要营养元素；相比之下，铝不是常规必需元素，硒也不是所有微生物都必需。",
         "optionExplanations": {
-          "A": "错误，钠并非所有微生物必需。",
-          "B": "错误，铝通常不被视为必需元素。",
-          "C": "错误，钙并非所有微生物绝对必需。",
-          "D": "正确，磷和硫是核心元素，硒是关键微量元素。"
+          "A": "错误。碳必需，但钠不是所有微生物的普遍必需元素。",
+          "B": "错误。磷必需，但铝通常不被视为微生物普遍必需元素。",
+          "C": "正确。钙、钾和镁都属于常见细胞营养元素，其中钾和镁尤其普遍。",
+          "D": "错误。磷和硫必需，但硒只在部分生物和部分酶系统中需要，不能说所有微生物都需要。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -10235,14 +10235,14 @@
       "sourcePage": 9,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "????????? aseptic technique????????????????????????????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "防止微生物污染依赖无菌操作，包括灭菌器具、避免暴露、正确转移培养物等。划线法和平板涂布法是分离或计数方法，本身不能概括污染预防原则。",
         "optionExplanations": {
-          "A": "???quadrant streak method ???????",
-          "B": "???aseptic technique ??????????",
-          "C": "?????????????????",
-          "D": "???spread plate method ??????????"
+          "A": "错误。Quadrant streak method 用于分离单菌落，不是预防污染的总原则。",
+          "B": "正确。Aseptic technique 的目的就是防止外源微生物进入样品或培养物。",
+          "C": "错误。特殊营养培养基影响生长选择性，不能保证无污染。",
+          "D": "错误。Spread plate method 是涂布计数或分离技术，不等同于无菌操作。"
         },
         "confidence": "high"
       }
@@ -10809,14 +10809,14 @@
       "sourcePage": 3,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "??????????????????inducer ? repressor ????????????????????????? A ????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "在由阻遏蛋白负调控的代谢途径中，诱导物通常与阻遏蛋白结合，使阻遏蛋白不能再有效阻断转录。结果是相关基因表达增加，代谢途径被诱导开启。",
         "optionExplanations": {
-          "A": "?????????????????????????",
-          "B": "????????????????????????",
-          "C": "?????????????????????",
-          "D": "?????????-???????????"
+          "A": "正确。诱导物结合阻遏蛋白后解除阻遏，最终效果是激活该代谢途径。",
+          "B": "错误。诱导物会使阻遏蛋白失活，但不会使代谢途径失活。",
+          "C": "错误。诱导物的典型作用对象是调控蛋白，不是底物。",
+          "D": "错误。诱导物不是酶-底物复合物的伴侣蛋白。"
         },
         "confidence": "high"
       }
@@ -11096,16 +11096,16 @@
       "sourcePage": 4,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "古菌的转录控制机制在整体组织形式上最接近细菌，特别是利用操纵子和调节蛋白进行基因表达调控。尽管其基础转录机器与真核生物相似，但在调控策略上常被视为类似细菌的调节蛋白作用模式。真核生物通常使用更复杂的转录因子复合物，而古菌在此题语境下被归类为类似细菌的调节蛋白系统。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "古菌的核心转录机器与真核生物相似，但许多基因表达调控方式更像细菌：常通过调节蛋白控制操纵子或相邻基因的转录。因此本题考点是“调控逻辑像细菌，使用 regulatory proteins”。",
         "optionExplanations": {
-          "A": "正确，古菌调控逻辑（如操纵子）更接近细菌。",
-          "B": "虽然机器像真核，但调控方式题目倾向于归为细菌类。",
-          "C": "转录因子通常指真核生物中的复杂复合物。",
-          "D": "同上，调控蛋白更符合细菌特征的描述。"
+          "A": "正确。这里问的是 transcriptional control，而不是基础转录机器本身。",
+          "B": "错误。古菌基础转录装置像真核，但本题强调调控方式。",
+          "C": "错误。前半句可对应调控逻辑，但后半句用 transcription factors 不如 regulatory proteins 符合本题措辞。",
+          "D": "错误。该组合把古菌调控整体归为真核式，不符合本题考点。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -11916,14 +11916,14 @@
       "sourcePage": 9,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "????????????????????????????????????????????????????????????????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "典型双组分系统由感受器激酶和反应调节蛋白组成。感受器常位于膜上，可接收外界环境信号，再通过磷酸转移把信息传给细胞内调控蛋白，从而改变基因表达。",
         "optionExplanations": {
-          "A": "??????????????????????",
-          "B": "?????????????????????",
-          "C": "?????????????????",
-          "D": "?????????????????????"
+          "A": "错误。双组分系统的优势不是“多一次激活机会”，而是把外界信号感知和细胞内转录调控连接起来。",
+          "B": "错误。该系统通常用于快速响应环境变化，不是为了故意延迟反应。",
+          "C": "正确。膜上的感受器蛋白可以接触外界或周质环境并启动信号传递。",
+          "D": "错误。磷酸化通常是可逆调控，不是永久开启基因。"
         },
         "confidence": "high"
       }
@@ -12039,16 +12039,16 @@
       "sourcePage": 10,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "全局调控系统通常应对广泛的环境压力，如热休克或厌氧呼吸。氨基酸合成通常被视为特定代谢途径的反馈调节，而非典型的全局应激响应系统。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "全局调控系统会同时影响许多基因和生理过程，例如热休克、厌氧响应或感受态/转化相关调控。氨基酸合成更偏向具体代谢途径调节，不是典型的全局调控系统。",
         "optionExplanations": {
-          "A": "正确。在此分类中，氨基酸合成不被视为全局调控系统的典型代表。",
-          "B": "转化涉及全局调控网络的变化。",
-          "C": "热休克是经典的全局应激响应。",
-          "D": "厌氧呼吸受全局氧感应系统调控。"
+          "A": "正确。氨基酸合成通常按具体生物合成通路调节，不属于这里列举的全局响应。",
+          "B": "错误。转化/感受态可受全局调控网络控制。",
+          "C": "错误。热休克反应是经典全局应激响应。",
+          "D": "错误。厌氧呼吸涉及氧感知和全局转录调控。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -13146,16 +13146,16 @@
       "sourcePage": 5,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "芽孢杆菌、鱼腥藻和柄杆菌都是研究差异基因表达和细胞分化的经典模型。相比之下，结核分枝杆菌虽然具有复杂的生理特性，但在该章节语境下不作为典型差异表达导致形态分化的例子。其他选项均展示了明显的细胞分化过程。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "Bacillus 的芽孢形成、Anabaena 的异形胞形成、Caulobacter 的游动细胞和柄细胞分化，都是差异基因表达驱动细胞分化的经典例子。Mycobacterium 不属于本章列举的这些典型发育分化模型。",
         "optionExplanations": {
-          "A": "芽孢形成涉及显著的分化",
-          "B": "非典型分化模型",
-          "C": "异形胞形成涉及分化",
-          "D": "柄状体形成涉及分化"
+          "A": "错误。Bacillus 通过差异基因表达形成内生孢子。",
+          "B": "正确。Mycobacterium 不是这里的典型差异表达分化模型。",
+          "C": "错误。Anabaena 通过差异基因表达形成异形胞。",
+          "D": "错误。Caulobacter 生命周期依赖阶段特异性基因表达。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -13592,19 +13592,19 @@
           "text": "Chromosome replication and cell division only occurs in the stalked cell stage."
         }
       ],
-      "answerKey": "D",
+      "answerKey": "A",
       "sourcePdf": "pdfs/chapter-07.pdf",
       "sourcePage": 8,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "在 Caulobacter 生命周期中，柄细胞负责分裂，但染色体复制的启动与分化过程紧密相连。选项 D 将复制和分裂严格限定在柄细胞阶段被认为是不准确的特征描述。其他选项反映了生命周期中特定阶段的限制条件。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "Caulobacter 的游动细胞通常不能立即复制染色体或分裂，必须先分化为柄细胞；柄细胞才进入复制和分裂循环。因此“细胞分裂只发生在游动细胞阶段”不是该生命周期特征。",
         "optionExplanations": {
-          "A": "错误描述，游动细胞通常不分裂。",
-          "B": "正确描述，柄细胞进行分裂。",
-          "C": "错误描述，游动细胞通常不复制。",
-          "D": "被认定为不符合特征的选项，因表述过于绝对。"
+          "A": "正确。游动细胞是非复制、非分裂阶段，这句话与生命周期相反。",
+          "B": "错误。柄细胞是可复制和分裂的阶段，因此这是 Caulobacter 的典型特征。",
+          "C": "不选。游动细胞通常不启动染色体复制，但本题单选中 A 是对细胞分裂阶段的最直接错误表述。",
+          "D": "错误。染色体复制和细胞分裂主要发生在柄细胞阶段，这符合生命周期特征。"
         },
         "confidence": "medium"
       }
@@ -14745,16 +14745,16 @@
       "sourcePage": 4,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "题目要求选出错误的陈述。虽然 Lambda 噬菌体进入细胞后通常会环化，但在特定选项对比下，本题设定 D 为不符合描述的选项。其他选项关于其温和噬菌体属性、DNA 结构及复制机制的描述均符合标准特征。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "本题要求选错误项。Lambda 是感染 E. coli 的温和噬菌体，基因组为线性双链 DNA，并可在裂解复制阶段通过滚环复制形成 concatemer。D 使用 always 过于绝对；lambda DNA 通常会借助 cos 端环化，但“总是”这一表述不适合作为严格机制描述。",
         "optionExplanations": {
           "A": "正确。Lambda 是感染大肠杆菌的温和噬菌体。",
           "B": "正确。Lambda 基因组是线性双链 DNA。",
-          "C": "正确。晚期包装阶段通过滚环复制产生 concatamers。",
-          "D": "错误（根据答案）。在此题语境下，该描述被视为不准确或例外情况。"
+          "C": "正确。裂解周期中可通过滚环复制产生 concatemer 供包装。",
+          "D": "正确答案。通常环化不等于严格意义上的 always；该绝对化表述是本题要排除的错误项。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -15032,14 +15032,14 @@
       "sourcePage": 6,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "lambda ??????????? cI repressor ???cI ????????????????????Cro ???????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "Lambda 进入溶原途径需要 cI 阻遏蛋白积累。cI 维持前噬菌体状态并抑制裂解相关基因；相反，Cro 积累会推动裂解途径。",
         "optionExplanations": {
-          "A": "???cI ??????????????",
-          "B": "???cII ????? cI??????????? cI?",
-          "C": "???Cro ??????????",
-          "D": "???Cro ? cI ???????????????????"
+          "A": "正确。cI 表达并积累是建立和维持溶原性的关键。",
+          "B": "错误。cII 可促进 cI 表达，但最终决定前噬菌体形成的是 cI 阻遏蛋白积累。",
+          "C": "错误。Cro 积累通常促进裂解周期而非前噬菌体形成。",
+          "D": "错误。Cro 和 cI 不是等量共同激活；两者代表不同命运倾向。"
         },
         "confidence": "high"
       }
@@ -15688,14 +15688,14 @@
       "sourcePage": 10,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "?????????????????temperate bacteriophages ??????????????????????????????????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "在自然环境中，宿主常常生长缓慢且种类复杂。温和噬菌体可以进入溶原状态，与宿主基因组一起复制，在宿主不适合大量裂解增殖时更有利于长期维持。",
         "optionExplanations": {
-          "A": "??????????????????????",
-          "B": "???enveloped viruses ????????????????",
-          "C": "???icosahedral ????????????????????????",
-          "D": "????????????????????"
+          "A": "错误。严格裂解型噬菌体更依赖快速增殖且可大量支持复制的宿主群体。",
+          "B": "错误。有无包膜不是慢生长原核宿主群体中最关键的生态判断。",
+          "C": "错误。二十面体是衣壳形态，不直接回答生活史策略。",
+          "D": "正确。温和噬菌体能溶原化，适合宿主稀少或生长慢的自然环境。"
         },
         "confidence": "high"
       }
@@ -17738,14 +17738,14 @@
       "sourcePage": 10,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "??????????????????????????????????????? proteomics?????????????????????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "药物靶点通常是实际执行功能的蛋白质或蛋白复合体。Proteomics 直接研究细胞或样品中的蛋白质组成、丰度和修饰，因此最直接用于寻找可被药物作用的分子靶点。",
         "optionExplanations": {
-          "A": "???proteomics ????????????",
-          "B": "???genomics ???????????????????",
-          "C": "???transcriptomics ?? RNA ?????",
-          "D": "???metabolomics ???????"
+          "A": "正确。蛋白质是许多药物靶点，蛋白质组学最直接对应靶点分子识别。",
+          "B": "错误。基因组学可帮助预测潜在靶点，但不如蛋白质组学直接反映功能分子。",
+          "C": "错误。转录组学研究 RNA 表达，不能直接说明蛋白水平和活性。",
+          "D": "错误。代谢组学研究代谢物，更多用于代谢状态和通路分析。"
         },
         "confidence": "high"
       }
@@ -18148,16 +18148,16 @@
       "sourcePage": 3,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "T7 噬菌体在感染过程中，随着 DNA 逐步注入宿主细胞，早期基因随即开始转录。为了在完整基因组进入前保护其免受宿主限制系统的切割，抑制蛋白必须在基因组完全进入之前就开始合成。这种快速反应机制确保了病毒遗传物质的安全。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "T7 DNA 进入宿主细胞是分阶段进行的，早期进入的基因会先被表达。其中包括抑制宿主限制系统的蛋白，以保护仍在进入或尚未完全进入的噬菌体基因组。",
         "optionExplanations": {
-          "A": "正确，早期基因表达迅速，旨在保护正在进入的 DNA。",
-          "B": "细菌没有细胞核，且该时间点描述不如 A 准确。",
-          "C": "如果等全部进入再合成，部分 DNA 可能已被降解。",
-          "D": "结合染色体不是触发合成的主要机制。"
+          "A": "正确。限制系统抑制蛋白属于早期保护机制，会在完整基因组进入前合成。",
+          "B": "错误。T7 感染细菌，细菌没有细胞核。",
+          "C": "错误。如果等全基因组进入后才合成，前段 DNA 可能已被限制酶攻击。",
+          "D": "错误。T7 不依靠结合宿主染色体来触发这类蛋白合成。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -21551,14 +21551,14 @@
       "sourcePage": 12,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "competence ??????? DNA ???????????????????? DNA ????????????????????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "Competence 指细菌能够摄取外源 DNA 并发生转化的生理状态。它通常需要专门的 DNA 结合、转运和细胞壁改造蛋白，例如细胞壁自溶素帮助 DNA 进入细胞。",
         "optionExplanations": {
-          "A": "???????????",
-          "B": "??????????????????",
-          "C": "????????????????",
-          "D": "?????????????? DNA ???"
+          "A": "错误。Transformation 需要细胞处于 competence 状态或被人工诱导为感受态。",
+          "B": "错误。自然转化可发生，但通常不是“普遍高效率”。",
+          "C": "错误。一些细菌可以天然形成感受态。",
+          "D": "正确。感受态需要特殊蛋白参与 DNA 结合、细胞壁局部改造和 DNA 转运。"
         },
         "confidence": "high"
       }
@@ -21920,14 +21920,14 @@
       "sourcePage": 2,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "PCR ? DNA ????? DNA?RT-PCR ?? reverse transcriptase ? RNA ???? cDNA???????????????? RT-PCR ?? RNA ???????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "普通 PCR 以 DNA 为模板扩增 DNA；RT-PCR 先用逆转录酶把 RNA 模板转成 cDNA，再进行 PCR 扩增。因此两者关键区别是起始模板不同。",
         "optionExplanations": {
-          "A": "???RT-PCR ?????? DNA/cDNA?",
-          "B": "???RT-PCR ?????? RNA?PCR ???? DNA?",
-          "C": "????? cDNA ? RT-PCR ????",
-          "D": "??????????????????"
+          "A": "错误。RT-PCR 也会通过 cDNA 扩增产生大量 DNA。",
+          "B": "正确。RT-PCR 起始于 RNA 模板，普通 PCR 起始于 DNA 模板。",
+          "C": "错误。cDNA 是 RT-PCR 中由 RNA 逆转录产生的，不是普通 PCR 独有。",
+          "D": "错误。两者都可涉及单链化后的 DNA 模板配对，区别不在单链或双链模板。"
         },
         "confidence": "high"
       }
@@ -23191,14 +23191,14 @@
       "sourcePage": 9,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "??????????????????????????????????????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "重组表达中大量生产外源蛋白时，宿主蛋白酶可能降解目标蛋白，降低产量或造成片段化。因此常使用蛋白酶缺陷宿主来提高过量表达蛋白的稳定性。",
         "optionExplanations": {
-          "A": "?????????????????????????",
-          "B": "?????????????????????",
-          "C": "?? B ??????????????????????????",
-          "D": "???????????????????????????"
+          "A": "错误。完整代谢通路工程主要需要协调多个酶的表达，不一定要求蛋白酶缺陷宿主。",
+          "B": "正确。过量表达蛋白时，减少宿主蛋白酶活性可降低目标蛋白降解。",
+          "C": "错误。小蛋白可能有降解风险，但题目问最典型情形，过量表达蛋白更直接。",
+          "D": "错误。转基因动物免疫系统工程不是选择蛋白酶缺陷微生物宿主的主要场景。"
         },
         "confidence": "high"
       }
@@ -24544,16 +24544,16 @@
       "sourcePage": 8,
       "hasFigure": true,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "在系统发育树中，物种的亲缘关系由最近共同祖先决定。根据题目设定，选项 B 陈述错误，意味着物种 D 实际上比物种 C 更亲近物种 E。其他选项描述了正确的分支顺序或亲缘关系。因此，B 是被选出的错误陈述。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "读系统发育树时，不能按物种在图上的左右距离判断亲缘远近，而要看最近共同祖先。根据该题图示，D 与 E 的最近共同祖先比 D 与 C 的最近共同祖先更近，因此“D 更接近 C 而不是 E”是错误陈述。",
         "optionExplanations": {
-          "A": "该陈述符合树的拓扑结构，E 与 A 共享较近的共同祖先。",
-          "B": "错误。根据答案，D 与 E 的关系比与 C 更近，或者 C 与 D 并非最亲近的组合。",
-          "C": "该陈述符合树的拓扑结构，F 与 D 的关系比与 E 更近。",
-          "D": "该陈述符合树的拓扑结构，C 与 B 的关系比与 D 更近。"
+          "A": "不选。该陈述与图中的最近共同祖先关系一致。",
+          "B": "正确答案。D 与 E 的共同祖先更近，D 并不比 E 更接近 C。",
+          "C": "不选。该陈述与图示拓扑关系一致。",
+          "D": "不选。C 与 B 的共同祖先比 C 与 D 的共同祖先更近。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -25569,16 +25569,16 @@
       "sourcePage": 3,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "qwen3.5-flash",
-        "generatedAt": "2026-05-09T00:00:00",
-        "explanation": "如果蓝细菌的 PSII 被阻断，它可以通过围绕 PSI 的环式光合磷酸化继续产生 ATP。此时它可以使用替代电子供体（如 H2S）进行不产氧光合作用。这解释了为何不会立即死亡。",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "PSII 负责水的氧化和产氧光合作用中的电子来源。若 PSII 被阻断，细胞不能正常进行水裂解产氧，但仍可能只利用 PSI 的环式光合磷酸化产生 ATP，并在有替代电子供体如 H2S 时转向不产氧光合模式。",
         "optionExplanations": {
-          "A": "逻辑错误，不需要额外受体氧化氧气。",
-          "B": "正确，可通过环式电子流维持能量。",
-          "C": "过于绝对，存在替代机制。",
-          "D": "虽然 ROS 可能增加，但细胞有防御机制，B 更准确描述代谢调整。"
+          "A": "错误。问题在于 PSII 不能氧化水供电子，不是需要 NADP+ 去氧化氧气。",
+          "B": "正确。PSI 环式电子流可产生 ATP，替代电子供体可支持不产氧光合作用。",
+          "C": "错误。不能说必然死亡，因为存在 PSI 环式光合磷酸化等替代能量方式。",
+          "D": "错误。ROS 风险可能增加，但不是本题考查的主要代谢后果。"
         },
-        "confidence": "medium"
+        "confidence": "high"
       }
     },
     {
@@ -39884,14 +39884,14 @@
       "sourcePage": 5,
       "hasFigure": false,
       "aiExplanation": {
-        "model": "manual-audit",
-        "generatedAt": "2026-05-09T11:11:03.402337",
-        "explanation": "??? UV ??????????????????????????????????????????",
+        "model": "gpt-5-manual-audit",
+        "generatedAt": "2026-06-11T00:00:00+08:00",
+        "explanation": "紫外线消毒主要通过损伤核酸来灭活微生物，对细菌和许多病毒有效。但较大的真核病原体或某些具有保护结构的生物阶段对 UV 更不敏感，因此处理效果较差。",
         "optionExplanations": {
-          "A": "???UV ???????????????????????????",
-          "B": "???UV ????????????????",
-          "C": "????????????? UV ????????",
-          "D": "???UV ??????????????????????"
+          "A": "错误。UV 通常能灭活病毒；选项还含有 iruses 拼写错误。",
+          "B": "错误。UV 并非只对病毒有效，对细菌也有效。",
+          "C": "错误。去除异味和味道相关有机物不是 UV 消毒的主要功能。",
+          "D": "正确。UV 对细菌和病毒较有效，但对某些真核病原体相对较弱。"
         },
         "confidence": "high"
       }

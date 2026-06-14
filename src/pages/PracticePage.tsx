@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { VocabularyPicker } from '../components/VocabularyPicker'
 import { usePractice } from '../hooks/usePractice'
 import { findAnswer, getPdfHref, getScoreSummary } from '../lib/practice'
 import type { OptionKey } from '../types'
@@ -8,7 +10,9 @@ export function PracticePage() {
     session,
     questionBank,
     mistakeRecords,
+    vocabularyRecords,
     recordAnswer,
+    addVocabularyRecord,
     restartPractice,
     goToIndex,
     keepMistake,
@@ -17,6 +21,8 @@ export function PracticePage() {
     getQuestionById,
   } = usePractice()
   const navigate = useNavigate()
+  const [isVocabularyMode, setIsVocabularyMode] = useState(false)
+  const [lastVocabularyTerm, setLastVocabularyTerm] = useState<string | null>(null)
 
   if (!session || !session.questionOrder.length) {
     return <Navigate replace to="/chapters" />
@@ -43,8 +49,24 @@ export function PracticePage() {
   const isMistakeDrill = practiceSession.mode === 'mistakes'
 
   function handleOptionClick(optionKey: OptionKey) {
-    if (!answer) {
+    if (!answer && !isVocabularyMode) {
       recordAnswer(currentQuestion.id, optionKey)
+    }
+  }
+
+  function handleVocabularyPick(term: string, contextText: string) {
+    const record = addVocabularyRecord({
+      term,
+      contextText,
+      sourceType: 'practice',
+      questionId: currentQuestion.id,
+      questionNumber: currentQuestion.number,
+      chapterId: currentQuestion.chapterId,
+      chapterTitle: currentQuestion.chapterTitle,
+    })
+
+    if (record) {
+      setLastVocabularyTerm(record.term)
     }
   }
 
@@ -101,6 +123,9 @@ export function PracticePage() {
             <div className="summary-pill">
               错题本 <strong>{mistakeRecords.length}</strong>
             </div>
+            <div className="summary-pill">
+              生词 <strong>{vocabularyRecords.length}</strong>
+            </div>
           </div>
         </div>
 
@@ -122,9 +147,36 @@ export function PracticePage() {
           </span>
           {chapterLabel ? <span className="summary-pill">{chapterLabel.title}</span> : null}
           {isInMistakes ? <span className="summary-pill">已在错题本</span> : null}
+          <button
+            className={isVocabularyMode ? 'secondary-button is-active' : 'ghost-button'}
+            onClick={() => setIsVocabularyMode((current) => !current)}
+            type="button"
+          >
+            {isVocabularyMode ? '退出取词' : '取词模式'}
+          </button>
         </div>
 
-        <h2 className="question-text">{currentQuestion.prompt}</h2>
+        <h2 className="question-text">
+          <VocabularyPicker
+            enabled={isVocabularyMode}
+            onPick={(term) => handleVocabularyPick(term, currentQuestion.prompt)}
+            text={currentQuestion.prompt}
+          />
+        </h2>
+
+        {isVocabularyMode ? (
+          <div className="vocabulary-tip">
+            <strong>取词模式已开启</strong>
+            <span>点题干或选项里的英文词即可加入生词本；此时不会提交答案。</span>
+          </div>
+        ) : null}
+
+        {lastVocabularyTerm ? (
+          <div className="vocabulary-confirm">
+            已加入生词本：<strong>{lastVocabularyTerm}</strong>
+            <Link to="/vocabulary">查看生词本</Link>
+          </div>
+        ) : null}
 
         {currentQuestion.hasFigure ? (
           <a
@@ -138,22 +190,42 @@ export function PracticePage() {
         ) : null}
 
         <div className="option-list">
-          {currentQuestion.options.map((option) => (
-            <button
-              className={getOptionClassName(
-                option.key,
-                currentQuestion.answerKey,
-                answer?.selectedKey === 'UNKNOWN' ? undefined : answer?.selectedKey,
-              )}
-              disabled={Boolean(answer)}
-              key={option.key}
-              onClick={() => handleOptionClick(option.key)}
-              type="button"
-            >
-              <span className="option-key">{option.key}</span>
-              <span>{option.text}</span>
-            </button>
-          ))}
+          {currentQuestion.options.map((option) =>
+            isVocabularyMode ? (
+              <div
+                className={`${getOptionClassName(
+                  option.key,
+                  currentQuestion.answerKey,
+                  answer?.selectedKey === 'UNKNOWN' ? undefined : answer?.selectedKey,
+                )} is-pickable`}
+                key={option.key}
+              >
+                <span className="option-key">{option.key}</span>
+                <span>
+                  <VocabularyPicker
+                    enabled
+                    onPick={(term) => handleVocabularyPick(term, option.text)}
+                    text={option.text}
+                  />
+                </span>
+              </div>
+            ) : (
+              <button
+                className={getOptionClassName(
+                  option.key,
+                  currentQuestion.answerKey,
+                  answer?.selectedKey === 'UNKNOWN' ? undefined : answer?.selectedKey,
+                )}
+                disabled={Boolean(answer)}
+                key={option.key}
+                onClick={() => handleOptionClick(option.key)}
+                type="button"
+              >
+                <span className="option-key">{option.key}</span>
+                <span>{option.text}</span>
+              </button>
+            ),
+          )}
         </div>
 
         {!answer ? (
@@ -264,6 +336,10 @@ export function PracticePage() {
 
           <Link className="ghost-button" to="/mistakes">
             错题本
+          </Link>
+
+          <Link className="ghost-button" to="/vocabulary">
+            生词本
           </Link>
 
           <Link className="ghost-button" to="/chapters">
